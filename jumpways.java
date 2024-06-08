@@ -2,18 +2,15 @@
 public class jumpways {
 
     public static long findWays(int N) {
-        // Edge case for N <= 0
+        
         if (N <= 0) {
             return 1;
         }
 
-        // Create an array to store results of subproblems
         long[] dp = new long[N + 1];
 
-        // Base case
-        dp[0] = 1;  // One way to stay at the starting point (do nothing)
+        dp[0] = 1;
 
-        // Fill the dp array
         for (int i = 1; i <= N; i++) {
             dp[i] = 0;
             if (i >= 1) dp[i] += dp[i - 1];
@@ -27,7 +24,7 @@ public class jumpways {
     }
 
     public static void main(String[] args) {
-        int N = 1000;  // Example value, can be any large number
+        int N = 1000;
         System.out.println("Number of ways to move " + N + " meters: " + findWays(N));
     }
 }
